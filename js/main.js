@@ -382,8 +382,8 @@ const productos = [
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
-let botonesAgregar = document.querySelectorAll(".producto-agregar");
-const numerito = document.querySelector("#numerito");
+let botonesAgregar = document.querySelectorAll(".agregar-carro");
+const numeroCarrito = document.querySelector("#numeroCarrito");
 
 
 function cargarProductos(productosElegidos) {
@@ -399,7 +399,7 @@ function cargarProductos(productosElegidos) {
             <div class="producto-detalles">
                 <h3 class="producto-titulo">${producto.titulo}</h3>
                 <p class="producto-precio">$${producto.precio}</p>
-                <button class="producto-agregar" id="${producto.id}">Agregar</button>
+                <button class="agregar-carro" id="${producto.id}"><strong>Agregar</strong></button>
             </div>
         `;
 
@@ -426,12 +426,12 @@ botonesCategorias.forEach(boton => {
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
         }
-
+merito
     })
 });
 
 function actualizarBotonesAgregar() {
-    botonesAgregar = document.querySelectorAll(".producto-agregar");
+    botonesAgregar = document.querySelectorAll(".agregar-carro");
 
     botonesAgregar.forEach(boton => {
         boton.addEventListener("click", agregarAlCarrito);
@@ -444,7 +444,7 @@ let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
 
 if (productosEnCarritoLS) {
     productosEnCarrito = JSON.parse(productosEnCarritoLS);
-    actualizarNumerito();
+    actualizarCarrito();
 } else {
     productosEnCarrito = [];
 }
@@ -461,12 +461,19 @@ function agregarAlCarrito(e) {
         productosEnCarrito.push(productoAgregado);
     }
 
-    actualizarNumerito();
+    actualizarCarrito();
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 }
 
-function actualizarNumerito() {
+function actualizarCarrito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-    numerito.innerText = nuevoNumerito;
+    numeroCarrito.innerText = nuevoNumerito;
 }
+
+const btnswitch = document.querySelector(`#switch`)
+
+btnswitch.addEventListener('click', () =>{
+    document.body.classList.toggle('dark');
+    btnswitch.classList.toggle('active'); 
+});
