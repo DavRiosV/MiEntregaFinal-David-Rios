@@ -81,6 +81,22 @@ header img {
   padding: 1rem;
   font-size: 0.85rem;
   width: 100%;
+  text-decoration: none;
+}
+
+.boton-menu:hover {
+  background-color: transparent;
+  border: 0;
+  color: var(--clr-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  padding: 1rem;
+  font-size: 0.85rem;
+  width: 100%;
+  text-decoration: none;
 }
 
 .boton-menu.active {
