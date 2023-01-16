@@ -11,7 +11,7 @@ const contenedorTotal = document.querySelector("#total");
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
 
-function cargarProductosCarrito() {
+function agregarAlCarrito() {
     if (productosEnCarrito && productosEnCarrito.length > 0) {
 
         contenedorCarritoVacio.classList.add("disabled");
@@ -60,7 +60,7 @@ function cargarProductosCarrito() {
     actualizarTotal();
 }
 
-cargarProductosCarrito();
+agregarAlCarrito();
 
 function actualizarBotonesEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
@@ -75,7 +75,7 @@ function eliminarDelCarrito(e) {
     const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
     
     productosEnCarrito.splice(index, 1);
-    cargarProductosCarrito();
+    agregarAlCarrito();
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
 
@@ -85,13 +85,13 @@ botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
     productosEnCarrito.length = 0;
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-    cargarProductosCarrito();
+    agregarAlCarrito();
 }
 
 
 function actualizarTotal() {
     const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-    total.innerText = `$${totalCalculado}`;
+    total.innerText = `CLP$ ${totalCalculado}`;
 }
 
 botonComprar.addEventListener("click", comprarCarrito);
@@ -104,8 +104,16 @@ function comprarCarrito() {
     contenedorCarritoProductos.classList.add("disabled");
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
-
 }
+
+
+    // if (contenedorCarritoVacio === 0) {
+    //     const div = document.createElement("div");
+    //         div.classList.add("carrito-vacio");
+    //         div.innerHTML = `
+    //         <img src="https://www.kindpng.com/picc/m/107-1075179_transparent-pokeball-png-transparent-background-pokeball-opening-png.png" alt="Transparent Pokeball Png - Transparent Background Pokeball Opening, Png Download@kindpng.com">
+    //         `;
+    // }
 
 const btnswitch = document.querySelector(`#switch`)
 

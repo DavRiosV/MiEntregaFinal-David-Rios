@@ -358,4 +358,12 @@ body.dark .carrito-acciones-total {
   line-height: 30px;
   background: none;
   color: #fff;
+}
+
+#map__contacto iframe {
+  width: 900px;
+}
+
+#map__contacto h2 {
+  color: var(--clr-red);
 }/*# sourceMappingURL=style.css.map */

@@ -9,7 +9,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Trueno"
@@ -24,7 +24,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "20.000",
+        precio: "20000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Trueno"
@@ -39,7 +39,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "20.000",
+        precio: "20000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Trueno"
@@ -54,7 +54,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Fuego"
@@ -69,7 +69,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Fuego"
@@ -84,7 +84,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Fuego / Volador"
@@ -99,7 +99,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Planta"
@@ -114,7 +114,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "35.000",
+        precio: "35000",
         descripcion: "Peluche de 50 cm de alto",
         tipo: {
             TipoElemental: "Planta"
@@ -129,7 +129,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Planta / Veneno"
@@ -144,7 +144,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Agua"
@@ -159,7 +159,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Agua"
@@ -174,7 +174,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Agua"
@@ -189,7 +189,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
@@ -204,7 +204,7 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
@@ -219,10 +219,10 @@ const productos = [
             nombre: "Peluches",
             id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
-            TipoElemental: "weird"
+            TipoElemental: "Normal"
         },
         oferta: true
     },
@@ -232,9 +232,9 @@ const productos = [
         imagen: "./new-img/pepechu.jpg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluche"
+            id: "Peluches"
         },
-        precio: "15.000",
+        precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
@@ -250,7 +250,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "69.990",
+        precio: "69990",
         descripcion: "VideoJuegos Nintendo Switch",
         oferta: false
     },
@@ -262,7 +262,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "69.990",
+        precio: "69990",
         descripcion: "VideoJuegos Nintendo Switch",
         oferta: false
     },
@@ -274,7 +274,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "69.990",
+        precio: "69990",
         descripcion: "VideoJuegos Nintendo Switch",
         oferta: false
     },
@@ -286,7 +286,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "90.000",
+        precio: "90000",
         descripcion: "VideoJuegos diamante - perla Nintendo Switch",
         oferta: true
     },
@@ -298,7 +298,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "69.990",
+        precio: "69990",
         descripcion: "VideoJuegos scarlet NSW",
         oferta: false
     },
@@ -310,7 +310,7 @@ const productos = [
             nombre: "Juegos",
             id: "Juegos"
         },
-        precio: "69.990",
+        precio: "69990",
         descripcion: "VideoJuegos violet Nintendo Switch",
         oferta: false
     },
@@ -324,7 +324,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "55.990",
+        precio: "55990",
         descripcion: "Pokémon TCG",
         oferta: true
     },
@@ -336,7 +336,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "15.990",
+        precio: "15990",
         descripcion: "Pokémon TCG",
         oferta: false
     },
@@ -348,7 +348,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "4.990",
+        precio: "4990",
         descripcion: "Pokémon TCG",
         oferta: false
     },
@@ -360,7 +360,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "74.990",
+        precio: "74990",
         descripcion: "Pokémon TCG",
         oferta: false
     },
@@ -372,7 +372,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "64.990",
+        precio: "64990",
         descripcion: "Pokémon TCG",
         oferta: false
     }
@@ -382,7 +382,7 @@ const productos = [
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 const tituloPrincipal = document.querySelector("#titulo-principal");
-let botonesAgregar = document.querySelectorAll(".agregar-carro");
+let btnAgregar = document.querySelectorAll(".agregar-carro");
 const numeroCarrito = document.querySelector("#numeroCarrito");
 
 
@@ -406,7 +406,7 @@ function cargarProductos(productosElegidos) {
         contenedorProductos.append(div);
     })
 
-    actualizarBotonesAgregar();
+    actualizarBtnAgregar();
 }
 
 cargarProductos(productos);
@@ -430,10 +430,10 @@ merito
     })
 });
 
-function actualizarBotonesAgregar() {
-    botonesAgregar = document.querySelectorAll(".agregar-carro");
+function actualizarBtnAgregar() {
+    btnAgregar = document.querySelectorAll(".agregar-carro");
 
-    botonesAgregar.forEach(boton => {
+    btnAgregar.forEach(boton => {
         boton.addEventListener("click", agregarAlCarrito);
     });
 }
@@ -467,8 +467,8 @@ function agregarAlCarrito(e) {
 }
 
 function actualizarCarrito() {
-    let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-    numeroCarrito.innerText = nuevoNumerito;
+    let nuevoProducto = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
+    numeroCarrito.innerText = nuevoProducto;
 }
 
 const btnswitch = document.querySelector(`#switch`)
