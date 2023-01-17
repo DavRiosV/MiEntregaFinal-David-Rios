@@ -35,6 +35,11 @@
                         </a>
                     </li>
                     <li>
+                        <a class="boton-menu boton-carrito" href="./pokedex.html">
+                            <i class="bi bi-file-person-fill"></i> Pokedex
+                        </a>
+                    </li>
+                    <li>
                         <a class="boton-menu boton-carrito active" href="./contacto.html">
                             <i class="bi bi-file-person-fill"></i> Contáctanos
                         </a>
@@ -48,52 +53,49 @@
         <main>
             <h2 class="titulo-principal">contacto</h2>
 
-            <section class="col-lg-12" id="contact">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-        
-                            <div class="col-lg-12">
-                                <form id="contactForm"   action="form.php" method="POST"></form>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="name" type="text" name="name" placeholder="Ingresa tú nombre"/>
-                                        <label for="name">Nombre completo</label>
-                                        <div class="invalid-feedback">Se requiere nombre.</div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" name="email" id="email" type="email" placeholder="david.r.v@hotmail.com" />
-                                        <label for="email">Email</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" name="phone" id="phone" type="phone" placeholder="Ingresa tú número de contacto"/>
-                                        <label for="number">Número de teléfono</label>
-                                        <div class="invalid-feedback">Se requiere número de contacto.</div>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="textarea" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem"></textarea>
-                                        <label for="message">Mensaje</label>
-                                        <div class="invalid-feedback">Por favor escriba su consulta.</div>
-                                    </div>
-                                </form>
-                                
+            <section id="contact">
+                    <div class="col-lg-12">
+                        <form class="row g-3 needs-validation" validate>
+                            <div class="col-md-4">
+                                <label for="validationCustom01" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">¡Se ve bien!</div>
+                                <div class="invalid-feedback">Completa el campo</div>
                             </div>
-                            
-                        </div>     
+                            <div class="col-md-4">
+                                <label for="validationCustom02" class="form-label">Correo</label>
+                                <input type="text" class="form-control" id="validationCustom02" value="" required>
+                                <div class="valid-feedback">¡Se ve bien!</div>
+                                <div class="invalid-feedback">Completa el campo</div>
+                            </div>
+                            <div class="col-md-4">
+
+                                <label for="validationCustom01" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="validationCustom01" value="" required>
+                                <div class="valid-feedback">¡Se ve bien!</div>
+                                <div class="invalid-feedback">Completa el campo</div>
+                            </div>
+                            <div class="col-md-9">
+                                <label for="validationTextarea" class="form-label"></label>
+                                <textarea class="form-control" id="validationTextarea" placeholder="Por favor escriba su consulta." required></textarea>
+                                <div class="invalid-feedback"> Por favor escriba su consulta.</div>
+                                <div class="valid-feedback">¡Se ve bien!</div>        
+                            </div>
+                            <button class="btn btn-primary" type="submit">Enviar</button>
                     </div>
-                </div>
-        
+                            
+                        </form>
+
             </section>           
-        <section>
-        
+        <section id="map">
             <div id="map__contacto">
-            <h2>Encuéntranos</h2> 
+            <h2 class="titulo-principal">Encuéntranos</h2> 
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.946562456686!2d-70.63147588538544!3d-33.50276740758402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662daa3947c568f%3A0x1bd7fc5e57b74561!2sPje.%20Benozzo%20Gozzoli%205016%2C%20San%20Joaqu%C3%ADn%2C%208960249%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1661812806035!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
         </main>
     </div>
     
-    <script src="./js/carrito.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

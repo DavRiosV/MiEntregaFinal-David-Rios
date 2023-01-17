@@ -1,5 +1,5 @@
-let productosEnCarrito = localStorage.getItem("productos-en-carrito");
-productosEnCarrito = JSON.parse(productosEnCarrito);
+let enCarrito = localStorage.getItem("productos-en-carrito");
+enCarrito = JSON.parse(enCarrito);
 
 const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
 const contenedorCarritoProductos = document.querySelector("#carrito-productos");
@@ -12,7 +12,7 @@ const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
 
 function agregarAlCarrito() {
-    if (productosEnCarrito && productosEnCarrito.length > 0) {
+    if (enCarrito && enCarrito.length > 0) {
 
         contenedorCarritoVacio.classList.add("disabled");
         contenedorCarritoProductos.classList.remove("disabled");
@@ -21,7 +21,7 @@ function agregarAlCarrito() {
     
         contenedorCarritoProductos.innerHTML = "";
     
-        productosEnCarrito.forEach(producto => {
+        enCarrito.forEach(producto => {
     
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
@@ -72,33 +72,33 @@ function actualizarBotonesEliminar() {
 
 function eliminarDelCarrito(e) {
     const idBoton = e.currentTarget.id;
-    const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+    const index = enCarrito.findIndex(producto => producto.id === idBoton);
     
-    productosEnCarrito.splice(index, 1);
+    enCarrito.splice(index, 1);
     agregarAlCarrito();
 
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
 
 }
 
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    enCarrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
     agregarAlCarrito();
 }
 
 
 function actualizarTotal() {
-    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    const totalCalculado = enCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
     total.innerText = `CLP$ ${totalCalculado}`;
 }
 
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
 
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    enCarrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
     
     contenedorCarritoVacio.classList.add("disabled");
     contenedorCarritoProductos.classList.add("disabled");
@@ -114,26 +114,3 @@ function comprarCarrito() {
     //         <img src="https://www.kindpng.com/picc/m/107-1075179_transparent-pokeball-png-transparent-background-pokeball-opening-png.png" alt="Transparent Pokeball Png - Transparent Background Pokeball Opening, Png Download@kindpng.com">
     //         `;
     // }
-
-const btnswitch = document.querySelector(`#switch`)
-
-btnswitch.addEventListener('click', () =>{
-    document.body.classList.toggle('dark');
-    btnswitch.classList.toggle('active'); 
-    
-    // guardar la seleccion del modo oscuro en localStorage 
-    
-if(document.body.classList.contains('dark')){
-    localStorage.setItem('dark-mode', 'true');
-} else {
-    localStorage.setItem('dark-mode', 'false');
-}
-});
-
-if(localStorage.getItem('dark-mode') === 'true'){
-    document.body.classList.add('dark');
-    btnswitch.classList.add('active'); 
-} else {
-    document.body.classList.remove('dark');
-    btnswitch.classList.remove('active');
-}

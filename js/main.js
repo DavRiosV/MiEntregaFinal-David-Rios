@@ -378,6 +378,29 @@ const productos = [
     }
 ];
 
+const btnswitch = document.querySelector(`#switch`)
+
+btnswitch.addEventListener('click', () =>{
+    document.body.classList.toggle('dark');
+    btnswitch.classList.toggle('active'); 
+    
+    // guardar la seleccion del modo oscuro en localStorage 
+    
+if(document.body.classList.contains('dark')){
+    localStorage.setItem('dark-mode', 'true');
+} else {
+    localStorage.setItem('dark-mode', 'false');
+}
+});
+
+if(localStorage.getItem('dark-mode') === 'true'){
+    document.body.classList.add('dark');
+    btnswitch.classList.add('active'); 
+} else {
+    document.body.classList.remove('dark');
+    btnswitch.classList.remove('active');
+}
+
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
@@ -471,25 +494,40 @@ function actualizarCarrito() {
     numeroCarrito.innerText = nuevoProducto;
 }
 
-const btnswitch = document.querySelector(`#switch`)
 
-btnswitch.addEventListener('click', () =>{
-    document.body.classList.toggle('dark');
-    btnswitch.classList.toggle('active'); 
-    
-    // guardar la seleccion del modo oscuro en localStorage 
-    
-if(document.body.classList.contains('dark')){
-    localStorage.setItem('dark-mode', 'true');
-} else {
-    localStorage.setItem('dark-mode', 'false');
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+const forms = document.querySelectorAll('.needs-validation')
+
+// Loop over them and prevent submission
+Array.from(forms).forEach(form => {
+form.addEventListener('submit', event => {
+    if (!form.checkValidity()) {
+    event.preventDefault()
+    event.stopPropagation()
+    }
+
+    form.classList.add('was-validated')
+}, false)
+})
+
+function buscarPoke(){
+    var pokedex = document.getElementById("search")
+    console.log(pokedex.value)
 }
-});
 
-if(localStorage.getItem('dark-mode') === 'true'){
-    document.body.classList.add('dark');
-    btnswitch.classList.add('active'); 
-} else {
-    document.body.classList.remove('dark');
-    btnswitch.classList.remove('active');
+const formPokemon = document.querySelector("#input-group")
+const inputPokemon = document.querySelector("#search")
+
+formPokemon.onsubmit = (e) => {
+    e.preventDefault()
+    peticion(inputPokemon.value)    
+}
+
+function peticion ( busqueda ) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${busqueda}/`)
+    .then( res => res.json())
+    .then( data => {
+        alert(`El nombre del pokemon buscado es: ${data.name}`)        
+    })
+    .catch(() => console.log("no se encontro")) 
 }

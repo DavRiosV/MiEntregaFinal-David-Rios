@@ -376,10 +376,6 @@ body.dark .carrito-acciones-total {
   color: #fff;
 }
 
-#map__contacto iframe {
-  width: 900px;
-}
-
-#map__contacto h2 {
+.contact label {
   color: var(--clr-red);
 }/*# sourceMappingURL=style.css.map */

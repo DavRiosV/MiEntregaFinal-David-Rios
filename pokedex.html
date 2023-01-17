@@ -29,12 +29,12 @@
                         </a>
                     </li>
                     <li>
-                        <a class="boton-menu boton-carrito active" href="./carrito.html">
+                        <a class="boton-menu boton-carrito" href="./carrito.html">
                             <i class="bi bi-cart-fill"></i> Carrito
                         </a>
                     </li>
                     <li>
-                        <a class="boton-menu boton-carrito" href="./pokedex.html">
+                        <a class="boton-menu boton-carrito active" href="./pokedex.html">
                             <i class="bi bi-file-person-fill"></i> Pokedex
                         </a>
                     </li>
@@ -50,29 +50,14 @@
             </footer>
         </aside>
         <main>
-            <h2 class="titulo-principal">Carrito</h2>
+            <h2 class="titulo-principal">Pokedex</h2>
             <div class="contenedor-carrito">
-                <p id="carrito-vacio" class="carrito-vacio">¡Ooops! Al parecer tus productos se escaparon. <i class="bi bi-emoji-frown"></i></p>
-
-                <div id="carrito-productos" class="carrito-productos disabled">
-
+                <div class="input-group rounded">
+                    <input type="search" id="search" class="form-control rounded" placeholder="Buscar" aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <button class="bi bi-search" onclick="buscarPoke()"> </button>
+                    </span>
                 </div>
-
-                <div id="carrito-acciones" class="carrito-acciones disabled">
-                    <div class="carrito-acciones-izquierda">
-                        <button id="carrito-acciones-vaciar" class="carrito-acciones-vaciar">Vaciar carrito</button>
-                    </div>
-                    <div class="carrito-acciones-derecha">
-                        <div class="carrito-acciones-total">
-                            <p>Total:</p>
-                            <p id="total">$3000</p>
-                        </div>
-                        <button id="carrito-acciones-comprar" class="carrito-acciones-comprar">Comprar ahora</button>
-                    </div>
-                </div>
-
-                <p id="carrito-comprado" class="carrito-comprado disabled">¡Felicidades! Tus productos han sido capturados. <i class="bi bi-check2-circle"></i></p>
-
             </div>
         </main>
     </div>
