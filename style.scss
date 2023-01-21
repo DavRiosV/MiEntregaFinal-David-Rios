@@ -383,7 +383,12 @@
     display: block;
     width: 100%;
     height: 400px;
-    object-fit: fill;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    background-image: url("https://images8.alphacoders.com/775/775003.jpg");
+    body.dark &{
+        background-image: url("https://images4.alphacoders.com/775/775002.jpg");
+    };
 }
 
 form .pokedex{
