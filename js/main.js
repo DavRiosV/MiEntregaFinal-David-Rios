@@ -7,7 +7,8 @@ const productos = [
         imagen: "./new-img/pikachu.jpg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
+            oferta: false
         },
         precio: "15000",
         descripcion: "Peluche de 30 cm de alto",
@@ -44,7 +45,8 @@ const productos = [
         tipo: {
             TipoElemental: "Trueno"
         },
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Peluche-04",
@@ -194,7 +196,8 @@ const productos = [
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Peluche-14",
@@ -209,7 +212,8 @@ const productos = [
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Peluche-15",
@@ -224,7 +228,8 @@ const productos = [
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Peluche-16",
@@ -239,7 +244,8 @@ const productos = [
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     // Juegos
     {
@@ -288,7 +294,8 @@ const productos = [
         },
         precio: "90000",
         descripcion: "VideoJuegos diamante - perla Nintendo Switch",
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Juego-05",
@@ -326,7 +333,8 @@ const productos = [
         },
         precio: "55990",
         descripcion: "Pokémon TCG",
-        oferta: true
+        oferta: true,
+        descuento: 15,
     },
     {
         id: "Cartas-02",
@@ -374,9 +382,11 @@ const productos = [
         },
         precio: "64990",
         descripcion: "Pokémon TCG",
-        oferta: false
+        oferta: true,
+        descuento: 15,
     }
 ];
+
 
 const btnswitch = document.querySelector(`#switch`)
 
@@ -400,6 +410,24 @@ if(localStorage.getItem('dark-mode') === 'true'){
     document.body.classList.remove('dark');
     btnswitch.classList.remove('active');
 }
+
+// swiper
+var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+    },
+    pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    },
+    navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+    },
+});
 
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
@@ -445,11 +473,10 @@ botonesCategorias.forEach(boton => {
             tituloPrincipal.innerText = productoCategoria.categoria.nombre;
             const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
             cargarProductos(productosBoton);
-        } else {
+        }  else {
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
         }
-merito
     })
 });
 
@@ -510,24 +537,3 @@ form.addEventListener('submit', event => {
 }, false)
 })
 
-function buscarPoke(){
-    var pokedex = document.getElementById("search")
-    console.log(pokedex.value)
-}
-
-const formPokemon = document.querySelector("#input-group")
-const inputPokemon = document.querySelector("#search")
-
-formPokemon.onsubmit = (e) => {
-    e.preventDefault()
-    peticion(inputPokemon.value)    
-}
-
-function peticion ( busqueda ) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${busqueda}/`)
-    .then( res => res.json())
-    .then( data => {
-        alert(`El nombre del pokemon buscado es: ${data.name}`)        
-    })
-    .catch(() => console.log("no se encontro")) 
-}

@@ -376,6 +376,91 @@ body.dark .carrito-acciones-total {
   color: #fff;
 }
 
-.contact label {
+.contact .col-lg-12 {
   color: var(--clr-red);
+}
+
+.map h2 {
+  color: var(--clr-red);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+form .pokedex {
+  width: 200px;
+  margin: 20px auto;
+}
+
+input .pokedex {
+  width: 100%;
+  padding: 10px;
+}
+
+.cardmon {
+  position: relative;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: "Roboto Mono", monospace;
+  max-width: 300px;
+  border-radius: 15px;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: rgb(216, 211, 211);
+  border: 1px solid black;
+}
+
+.cardmon::before {
+  content: "";
+  background: radial-gradient(black 33%, transparent 33%);
+  background-size: 3px 3px;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: -1;
+}
+
+.img-container {
+  position: relative;
+  width: 180px;
+  margin: 10px auto;
+}
+
+.poke-types div {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 4px;
+  border: 1px solid black;
+  color: white;
+}
+
+.poke-img {
+  width: 180px;
+  border-radius: 50%;
 }/*# sourceMappingURL=style.css.map */

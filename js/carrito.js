@@ -94,6 +94,8 @@ function actualizarTotal() {
     total.innerText = `CLP$ ${totalCalculado}`;
 }
 
+
+
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
 
@@ -105,6 +107,8 @@ function comprarCarrito() {
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
 }
+
+
 
 
     // if (contenedorCarritoVacio === 0) {

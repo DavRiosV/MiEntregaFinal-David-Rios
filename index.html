@@ -7,9 +7,28 @@
     <title>R&A Ltda</title>
     <link rel="shortcut icon" href="./new-img/Poké_Ball_icon.svg.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://assets.pokemon.com/assets//cms2-es-xl/img/video-games/_tiles/pokemon-scarlet-violet/launch/scarlet-violet-169-latam.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://assets.pokemon.com/assets//cms2-es-xl/img/trading-card-game/_tiles/strategy/swsh12/top-cards/swsh12-top-cards-169-es.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://assets.pokemon.com/assets//cms2-es-xl/img/trading-card-game/series/incrementals/swsh12-elite-trainer-box/swsh12-elite-trainer-box-169-es.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://assets.pokemon.com/assets//cms2-es-xl/img/attend-events/_tiles/2023/2023-play-pokemon-season-169.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://assets.pokemon.com/assets//cms2-es-xl/img/trading-card-game/_tiles/tcgo/generic/tcgo-playmat-action-169-es.png" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.pokemon.com/static-assets/content-assets/cms2-es-xl/img/trading-card-game/_tiles/sv/sv01/announce/sv01-announce-169-es.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.pokemon.com/static-assets/content-assets/cms2-es-xl/img/attend-events/championship/2023-ocic/2023-ocic-169.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="https://www.pokemon.com/static-assets/content-assets/cms2-es-xl/img/misc/_tiles/pokemon-tv-app/relaunch/pokemon-tv-app-875.png" alt=""></div>
+                <div class="swiper-slide"><img src="https://unite.pokemon.com/images/home/header/video-header-medium-up.jpg" alt=""></div>
+            </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+        </div>
 
     <div class="wrapper">
         <aside>
@@ -37,7 +56,12 @@
                         <button id="Cartas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Cartas</button>
                     </li>
                     <li>
-                        <button id="Pokedex" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pokedex</button>
+                        <button id="Ofertas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Ofertas</button>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./pokedex.html">
+                            <i class="bi bi-hand-index-thumb"></i> Pokedex
+                        </a>
                     </li>
                     <li>
                         <a class="boton-menu boton-carrito" href="./carrito.html">
@@ -62,6 +86,7 @@
         </main>
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
