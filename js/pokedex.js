@@ -3,9 +3,9 @@ const btnswitch = document.querySelector(`#switch`)
 btnswitch.addEventListener('click', () =>{
     document.body.classList.toggle('dark');
     btnswitch.classList.toggle('active'); 
-    
+
     // guardar la seleccion del modo oscuro en localStorage 
-    
+
 if(document.body.classList.contains('dark')){
     localStorage.setItem('dark-mode', 'true');
 } else {
@@ -27,6 +27,7 @@ const pokeImg = document.querySelector('[data-poke-img]');
 const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
+const pokeStats = document.querySelector('[data-poke-stats]');
 
 const typeColors = {
     electric: '#F8D030',
@@ -55,6 +56,8 @@ const typeColors = {
 const searchPokemon = event => {
     event.preventDefault();
     const { value } = event.target.pokemon;
+    console.log(event)
+    console.log(value)
     fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`)
         .then(data => data.json())
         .then(response => renderPokemonData(response))
@@ -70,19 +73,16 @@ const renderPokemonData = data => {
     pokeId.textContent = `Nº ${data.id}`;
     colorCard(types);
     renderPokemonTypes(types);
-    renderPokemonStats(stats);
-    console.log(sprite)
 }
-
 
 const colorCard = types => {
     const colorOne = typeColors[types[0].type.name];
     const colorTwo = types[1] ? typeColors[types[1].type.name] : typeColors[types[0].type.name];
     pokeImg.style.background =  `linear-gradient( ${colorOne} 60% , ${colorTwo} 10%)`;
-
 }
 
 const renderPokemonTypes = types => {
+    console.log(types)
     pokeTypes.innerHTML = '';
     types.forEach(type => {
         const typeTextElement = document.createElement("div");
@@ -92,19 +92,30 @@ const renderPokemonTypes = types => {
     });
 }
 
-const renderPokemonStats = stats => {
-    pokeStats.innerHTML = '';
-    stats.forEach(stat => {
-        const statElement = document.createElement("div");
-        const statElementName = document.createElement("div");
-        statElement.appendChild(statElementName);
-    });
-}
-
 const renderNotFound = () => {
+    console.log("entro")
     pokeName.textContent = 'Pokemon aún sin descubrir';
-    pokeImg.setAttribute('src', './new-img/MissingnoIdle.webp');
+    pokeImg.setAttribute('src', '../MiEntregaFinal-David-Rios/new-img/MissingnoIdle.webp');
     pokeImg.style.background =  '#ececec';
     pokeTypes.innerHTML = '';
     pokeId.textContent = '';
 }
+
+
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+        }, false);
+    });
+    }, false);
+})();

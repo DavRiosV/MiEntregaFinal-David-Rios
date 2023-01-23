@@ -38,15 +38,17 @@ const productos = [
         imagen: "./new-img/couple.jpg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
+
         },
         precio: "20000",
-        descripcion: "Peluche de 30 cm de alto",
-        tipo: {
-            TipoElemental: "Trueno"
-        },
         oferta: true,
         descuento: 15,
+        descripcion: "Peluche de 30 cm de alto",
+        tipo: {
+            TipoElemental: "Trueno",
+        },
+
     },
     {
         id: "Peluche-04",
@@ -189,15 +191,16 @@ const productos = [
         imagen: "./new-img/ditto-bulbasaur.jpeg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
         },
         precio: "15000",
+        ofertas: true,
+        descuento: 15,
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true,
-        descuento: 15,
+
     },
     {
         id: "Peluche-14",
@@ -205,15 +208,16 @@ const productos = [
         imagen: "./new-img/ditto-charmander.jpeg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
         },
         precio: "15000",
+        oferta: true,
+        descuento: 15,
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true,
-        descuento: 15,
+
     },
     {
         id: "Peluche-15",
@@ -221,15 +225,16 @@ const productos = [
         imagen: "./new-img/ditto-squirtle.jpg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
         },
         precio: "15000",
+        oferta: true,
+        descuento: 15,
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true,
-        descuento: 15,
+
     },
     {
         id: "Peluche-16",
@@ -237,15 +242,16 @@ const productos = [
         imagen: "./new-img/pepechu.jpg",
         categoria: {
             nombre: "Peluches",
-            id: "Peluches"
+            id: "Peluches",
         },
         precio: "15000",
+        oferta: true,
+        descuento: 15,
         descripcion: "Peluche de 30 cm de alto",
         tipo: {
             TipoElemental: "Normal"
         },
-        oferta: true,
-        descuento: 15,
+
     },
     // Juegos
     {
@@ -290,12 +296,12 @@ const productos = [
         imagen: "./new-img/perla-diamante.jpg",
         categoria: {
             nombre: "Juegos",
-            id: "Juegos"
+            id: "Juegos",
         },
         precio: "90000",
-        descripcion: "VideoJuegos diamante - perla Nintendo Switch",
         oferta: true,
         descuento: 15,
+        descripcion: "VideoJuegos diamante - perla Nintendo Switch",
     },
     {
         id: "Juego-05",
@@ -331,7 +337,7 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "55990",
+        precio: "54000",
         descripcion: "Pokémon TCG",
         oferta: true,
         descuento: 15,
@@ -380,18 +386,12 @@ const productos = [
             nombre: "Cartas",
             id: "Cartas"
         },
-        precio: "64990",
+        precio: "64000",
         descripcion: "Pokémon TCG",
         oferta: true,
         descuento: 15,
     }
 ];
-
-let productosjson = [];
-
-fetch("./js/productos.json")
-    .then(response => response.json())
-
 
 const btnswitch = document.querySelector(`#switch`)
 
@@ -473,15 +473,17 @@ botonesCategorias.forEach(boton => {
         botonesCategorias.forEach(boton => boton.classList.remove("active"));
         e.currentTarget.classList.add("active");
 
-        if (e.currentTarget.id != "todos") {
+        if (e.currentTarget.id != "todos" && e.currentTarget.id != "Ofertas"  ) {
             const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id);
             tituloPrincipal.innerText = productoCategoria.categoria.nombre;
             const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
             cargarProductos(productosBoton);
-        }  else {
+        }  else if (e.currentTarget.id === "todos" ) {
             tituloPrincipal.innerText = "Todos los productos";
             cargarProductos(productos);
-        }
+        } else {tituloPrincipal.innerText = "Ofertas";
+        const productosBoton = productos.filter(producto => producto.oferta);
+        cargarProductos(productosBoton);} 
     })
 });
 
@@ -542,18 +544,3 @@ function actualizarCarrito() {
     numeroCarrito.innerText = nuevoProducto;
 }
 
-
-// Fetch all the forms we want to apply custom Bootstrap validation styles to
-const forms = document.querySelectorAll('.needs-validation')
-
-// Loop over them and prevent submission
-Array.from(forms).forEach(form => {
-form.addEventListener('submit', event => {
-    if (!form.checkValidity()) {
-    event.preventDefault()
-    event.stopPropagation()
-    }
-
-    form.classList.add('was-validated')
-}, false)
-})

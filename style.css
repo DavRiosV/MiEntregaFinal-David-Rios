@@ -468,4 +468,8 @@ input .pokedex {
 .poke-img {
   width: 180px;
   border-radius: 50%;
+}
+
+label {
+  color: white;
 }/*# sourceMappingURL=style.css.map */

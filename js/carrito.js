@@ -21,6 +21,7 @@ if(localStorage.getItem('dark-mode') === 'true'){
     btnswitch.classList.remove('active');
 }
 
+
 let enCarrito = localStorage.getItem("productos-en-carrito");
 enCarrito = JSON.parse(enCarrito);
 
@@ -45,7 +46,7 @@ function agregarAlCarrito() {
         contenedorCarritoProductos.innerHTML = "";
     
         enCarrito.forEach(producto => {
-    
+            let precio = sumaProducto(producto);
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
             div.innerHTML = `
@@ -60,11 +61,11 @@ function agregarAlCarrito() {
                 </div>
                 <div class="carrito-producto-precio">
                     <small>Precio</small>
-                    <p>$${producto.precio}</p>
+                    <p>$${precio}</p>
                 </div>
                 <div class="carrito-producto-subtotal">
                     <small>Subtotal</small>
-                    <p>$${producto.precio * producto.cantidad}</p>
+                    <p>$${ precio * producto.cantidad}</p>
                 </div>
                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
             `;
@@ -106,21 +107,62 @@ function eliminarDelCarrito(e) {
 
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito() {
-    enCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
-    agregarAlCarrito();
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Se eliminaran todos los produtos de tu carrito",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '¡Si, vaciar carrito!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            enCarrito.length = 0;
+            localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
+            agregarAlCarrito();
+        Swal.fire(
+            '¡Carrito vaciado!',
+            '¡tus productos han sido eliminados con exito!.',
+            'success'
+        )
+        }
+    })
+
 }
 
 
-function actualizarTotal() {
-    const totalCalculado = enCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+function actualizarTotal() { 
+    const totalCalculado = enCarrito.reduce((acc, producto) => acc + sumaProductoCantidad(producto), 0);
     total.innerText = `CLP$ ${totalCalculado}`;
 }
+function sumaProductoCantidad(producto) {
 
+    if (producto.oferta) {
+        return (  producto.precio - (producto.precio * producto.descuento / 100) ) * producto.cantidad;
+    } else {
+        return producto.precio * producto.cantidad;
+    }
+}
+function sumaProducto(producto) {
 
+    if (producto.oferta) {
+        return (  producto.precio - (producto.precio * producto.descuento / 100) );
+    } else {
+        return producto.precio;
+    }
+}
 
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
+
+    Swal.fire({
+        title: '¡Felicidades! atrapaste tus productos',
+        text: 'Esperamos poder verte pronto.',
+        imageUrl: 'https://media.tenor.com/lAz1WcGbKukAAAAC/pokeball-catch.gif',
+        imageWidth: 400,
+        imageHeight: 200,
+    })
 
     enCarrito.length = 0;
     localStorage.setItem("productos-en-carrito", JSON.stringify(enCarrito));
@@ -134,10 +176,10 @@ function comprarCarrito() {
 
 
 
-    // if (contenedorCarritoVacio === 0) {
-    //     const div = document.createElement("div");
-    //         div.classList.add("carrito-vacio");
-    //         div.innerHTML = `
-    //         <img src="https://www.kindpng.com/picc/m/107-1075179_transparent-pokeball-png-transparent-background-pokeball-opening-png.png" alt="Transparent Pokeball Png - Transparent Background Pokeball Opening, Png Download@kindpng.com">
-    //         `;
-    // }
+    if (contenedorCarritoVacio === 0) {
+        const div = document.createElement("div");
+            div.classList.add("carrito-vacio");
+            div.innerHTML = `
+            <img src="https://www.kindpng.com/picc/m/107-1075179_transparent-pokeball-png-transparent-background-pokeball-opening-png.png" alt="Transparent Pokeball Png - Transparent Background Pokeball Opening, Png Download@kindpng.com">
+            `;
+    }
